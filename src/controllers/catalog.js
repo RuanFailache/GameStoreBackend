@@ -5,13 +5,13 @@ const getProducts = async(req, res) => {
     try{
         const result = await connection.query(`
             SELECT
-                "public.products".id,
-                "public.products".name,
-                "public.products".description,
-                "public.products".price,
-                "public.products".cover,
-                "public.products".banner
-            FROM "public.products";
+                products.id,
+                products.name,
+                products.description,
+                products.price,
+                products.cover,
+                products.banner
+            FROM products;
         `);
 
         res.send(result.rows);
