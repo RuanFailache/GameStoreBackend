@@ -16,10 +16,10 @@ export default async function insertProductOnDatabase() {
     ) RETURNING *;`, [
     faker.name.jobArea(),
     faker.finance.amount() * 100,
-    faker.lorem.text(),
-    faker.image.animals(),
-    faker.image.animals(),
-    faker.image.animals(),
+    faker.lorem.lines(10),
+    faker.image.image(),
+    faker.image.abstract(),
+    faker.image.food(),
     faker.image.animals(),
   ]);
 }

@@ -1,4 +1,4 @@
-import connection from '../database/database';
+import connection from '../database/database.js';
 
 export default async function getProduct(req, res) {
   const { id } = req.params;

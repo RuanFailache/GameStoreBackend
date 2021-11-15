@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import getProduct from './controllers/product';
-import postSignUp from './controllers/signup';
-import postSignIn from './controllers/signin';
+import getProduct from './controllers/product.js';
+import postSignUp from './controllers/signup.js';
+import postSignIn from './controllers/signin.js';
 
 const app = express();
 

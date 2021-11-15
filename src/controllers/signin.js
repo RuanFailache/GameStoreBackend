@@ -1,7 +1,7 @@
 import bycript from 'bcrypt';
 import { v4 as uuid } from 'uuid';
-import connection from '../database/database';
-import signInSchema from '../schemas/signInSchema';
+import connection from '../database/database.js';
+import signInSchema from '../schemas/signInSchema.js';
 
 export default async function postSignIn(req, res) {
   const { email, password } = req.body;

@@ -1,6 +1,6 @@
 import bycript from 'bcrypt';
-import connection from '../database/database';
-import signUpSchema from '../schemas/signUpSchema';
+import connection from '../database/database.js';
+import signUpSchema from '../schemas/signUpSchema.js';
 
 export default async function postSignUp(req, res) {
   const { name, email, password } = req.body;
