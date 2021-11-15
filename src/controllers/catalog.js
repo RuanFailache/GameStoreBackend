@@ -1,4 +1,4 @@
-import connection from "../database.js";
+import connection from "../database/database.js";
 
 const getProducts = async(req, res) => {
     
