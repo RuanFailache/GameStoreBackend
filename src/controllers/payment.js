@@ -1,4 +1,4 @@
-import connection from '../database/database';
+import connection from '../database/database.js';
 
 const postPurchase = async (req, res) => {
   const { userId, paymentMethod, products } = req.body;
