@@ -1,4 +1,4 @@
-import app from "../src/app.js";
+import app from "../app.js";
 import supertest from "supertest";
 
 describe("GET /products", ()=>{
