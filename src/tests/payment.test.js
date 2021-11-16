@@ -2,14 +2,15 @@ import '../setup.js';
 
 import supertest from 'supertest';
 import app from '../app.js';
-import insertTestUser from '../factories/signIn.factory.js';
 
 import connection from '../database/database.js';
 
 describe('POST /payment', () => {
-    beforeAll(async () => {
-      await connection.query('DELETE FROM purchases_products;');
-      await connection.query('DELETE FROM purchases;');
+    afterAll(async () => {
+        const purchase = await connection.query('SELECT purchases.id FROM purchases WHERE "user-id" = 10;');
+        const purchaseId = purchase.rows[0].id;
+        await connection.query('DELETE FROM purchases_products WHERE "purchase-id" = $1;', [purchaseId]);
+        await connection.query('DELETE FROM purchases WHERE id = $1;', [purchaseId]);
     });
 
     test('Sucessful post returns 201', async() => {
