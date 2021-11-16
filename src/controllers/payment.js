@@ -4,13 +4,12 @@ const postPurchase = async (req, res) => {
 
     const { userId, paymentMethod, products } = req.body;
 
+    const validPaymentMethod = paymentMethod === 'credit-card' || paymentMethod === 'debit-card';
   
-    if (!products || !userId || !paymentMethod || products.length === 0) {
+    if (!products || !userId || !paymentMethod || products.length === 0 || !validPaymentMethod) {
       res.sendStatus(400);
       return;
     }
-
-
   
     try {
       const purchase = await connection.query(`
@@ -29,7 +28,7 @@ const postPurchase = async (req, res) => {
         `, [purchaseId, product.productId, product.amount]);
       });
 
-      res.sendStatus(200);
+      res.sendStatus(201);
 
     } catch {
       res.sendStatus(500);
