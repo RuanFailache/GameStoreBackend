@@ -1,12 +1,11 @@
-import app from "../app.js";
-import supertest from "supertest";
+import supertest from 'supertest';
+import app from '../app.js';
 
-describe("GET /products", ()=>{
+describe('GET /products', () => {
+  test('returns 200 for successful get products', async () => {
+    const result = await supertest(app).get('/products');
+    const { status } = result;
 
-    test("returns 200 for successful get products", async() =>{
-        const result = await supertest(app).get("/products");
-        const status = result.status;
-
-        expect(status).toEqual(200);
-    });
+    expect(status).toEqual(200);
+  });
 });
