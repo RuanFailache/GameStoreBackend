@@ -37,7 +37,13 @@ export default async function postSignIn(req, res) {
       [userId, token],
     );
 
-    return res.send({ user: { name: login.rows[0].name }, token });
+    return res.send({
+      user: {
+        userId: login.rows[0].id,
+        name: login.rows[0].name,
+      },
+      token,
+    });
   } catch {
     return res.sendStatus(500);
   }
